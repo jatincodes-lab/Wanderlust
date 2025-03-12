@@ -1,0 +1,40 @@
+<% layout('/layouts/boilerPlate.ejs') -%>
+
+<body>
+  <div class="row">
+    <div class="col-6 offset-2">
+      <h3 class="login-head offset-3 mb-3">Login on Wanderlust</h3>
+      <form
+        class="addForm offset-3 needs-validation"
+        method="post"
+        action="/login"
+        novalidate
+      >
+        <!-- Username Input Field -->
+        <div class="mb-3">
+          <label class="form-label" for="username">Username</label>
+          <input
+            class="form-control"
+            type="text"
+            id="username"
+            name="username"
+            required
+          />
+        </div>
+
+        <!-- Password Input Field -->
+        <div class="mb-3">
+          <label class="form-label" for="password">Password</label>
+          <input
+            class="form-control"
+            type="password"
+            id="password"
+            name="password"
+            required
+          />
+        </div>
+        <button class="btn btn-login btn-sm ms-5">Login</button>
+      </form>
+    </div>
+  </div>
+</body>

@@ -1,0 +1,114 @@
+<% layout('/layouts/boilerPlate.ejs') -%>
+
+<body>
+<div class="filterBar">
+  <div class="filters">
+    <div class="filter">
+      <div class="icon"><i class="fa-solid fa-fire"></i></div>
+      <p>Trending</p>
+    </div>
+    <div class="filter">
+      <div class="icon"><i class="fa-solid fa-bed"></i></div>
+      <p>Rooms</p>
+    </div>
+      <div class="filter">
+      <div class="icon"><i class="fa-solid fa-mountain-city"></i></i></div>
+      <p>Iconic Cities</p>
+    </div>
+    <div class="filter">
+      <div class="icon"><i class="fa-solid fa-mountain"></i></div>
+      <p>Mountains</p>
+    </div>
+      <div class="filter">
+      <div class="icon"><i class="fa-solid fa-person-swimming"></i></div>
+      <p>pools</p>
+    </div>
+    <div class="filter">
+      <div class="icon"><i class="fa-solid fa-umbrella-beach"></i></div>
+      <p>Beaches</p>
+    </div>
+      <div class="filter">
+      <div class="icon"><i class="fa-solid fa-house-laptop"></i></div>
+      <p>Cabins</p>
+    </div>
+    <div class="filter">
+      <div class="icon"><i class="fa-solid fa-house-flood-water"></i></div>
+      <p>Lakefront</p>
+    </div>
+    <div class="filter">
+      <div class="icon"><i class="fa-solid fa-tower-observation"></i></div>
+      <p>Good views</p>
+    </div>
+    <div class="filter">
+      <div class="icon"><i class="fa-solid fa-meteor"></i></div>
+      <p>OMG!</p>
+    </div>
+    </div>
+
+    <div class="tax-toggle">
+      <div class="form-check-reverse form-switch">
+        <input type="checkbox" role="switch" class="form-check-input" id="flexSwitchCheckDefault">
+        <label for="flexSwitchCheckDefault" class="form-check-label">Include Taxes</label>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- Main container for all listing cards -->
+  <div class="cardContainer">
+    
+    <!-- Looping through all listings -->
+    <% for(listings of allListings) {%>
+    
+    <!-- Individual listing card with a clickable link to its details page -->
+    <a class="cardId" href="/listings/<%= listings.id %>">
+      
+      <!-- Card structure -->
+      <div class="card" style="width: 18rem">
+        
+        <!-- Listing image -->
+        <img
+          src="<%= listings.image.url %>"
+          class="card-img-top"
+          alt="<%= listings.image.filename %>"  
+        />
+        
+        <!-- Overlay effect on the image -->
+        <div class="card-img-overlay"></div>
+        
+        <!-- Card details -->
+        <div class="card-body">
+          
+          <!-- Listing title -->
+          <h6><%= listings.title %></h6>
+          
+          <!-- Listing location -->
+          <h6><%= listings.location %></h6>
+          
+          <!-- Listing price per night with Indian Rupee symbol -->
+          <h6>
+            <i class="fa-solid fa-indian-rupee-sign"></i> <%= listings.price.toLocaleString("en-IN") %> night
+            <i class="additionalGst"> &nbsp; +18% Gst.</i>
+          </h6>
+        </div>
+      </div>
+    </a>
+    
+    <% } %>
+  </div>
+  <script>
+      let taxSwitch = document.getElementById("flexSwitchCheckDefault");
+      taxSwitch.addEventListener("click", () => {
+        let taxInfo = document.getElementsByClassName("additionalGst");
+        for(info of taxInfo){
+        if(info.style.display != "inline") {
+          info.style.display = "inline";
+        } else {
+          info.style.display = "none";
+        }
+      }
+      });
+</script>
+</body>
+
