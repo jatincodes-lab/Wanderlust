@@ -390,8 +390,8 @@ footer a:hover {
     margin-left: 0;
   }
   .col-6 {
-    width: 100%;
-    padding: 0rem 2rem 0rem 2rem;
+    width: 86%;
+    margin-left: 1.5rem;
   }
   .ms-5 {
     margin: 1rem 0rem 0rem 1rem !important;
