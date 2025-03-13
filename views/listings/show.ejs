@@ -27,7 +27,7 @@
       </h6>
 
       <!-- Listing Description -->
-      <p class="card-text"><%= listing.description %></p>
+      <p class="card-text description"><i><%= listing.description %></i></p>
 
       <!-- Listing Price per night -->
       <h5 class="card-price">
@@ -117,7 +117,7 @@
         <div class="mb-3">
           <label class="form-label" for="comment">Comment</label>
           <textarea
-            class="form-control"
+            class="form-control comments"
             name="review[comment]"
             id="comment"
             required
@@ -134,7 +134,7 @@
 
       <!-- Displaying Reviews for the Listing -->
       <% if(listing.reviews.length > 0) { %>
-      <div class="row">
+      <div class="row card-container">
         <h3>Reviews</h3>
         <% for(let review of listing.reviews) { %>
         <div class="card col-5 mb-3 ms-4">
