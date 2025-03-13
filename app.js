@@ -89,9 +89,12 @@ app.all("*", (req, res, next) => {
 
 app.use((err, req, res, next) => {
   let { statusCode = 500, message = "Something Went Wrong" } = err;
-  console.log(err);
+  if (process.env.NODE_ENV !== "production") {
+    console.log(err.stack);
+  }
   res.status(statusCode).render("error.ejs", { message });
 });
+
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

@@ -41,8 +41,9 @@ router
   .delete(isLoggedIn, isOwner, wrapAsync(listingController.deleteListing));
 
 // Edit Listing
-router.get(
-  "/:id/edit",
+router
+  .route("/:id/edit")
+  .get(
   isLoggedIn,
   isOwner,
   wrapAsync(listingController.editListing)
